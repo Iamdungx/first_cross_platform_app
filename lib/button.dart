@@ -13,41 +13,43 @@ class MainApp extends StatefulWidget {
   _MainAppState createState() => _MainAppState();
   }
 
-  class _MainAppState extends State<MainApp> {
-    // Tạo lớp chứa trạng thái của widget
+class _MainAppState extends State<MainApp> {
+  // Tạo lớp chứa trạng thái của widget
 
-    // Khai báo biến final để không thay đổi giá trị
-    final TextEditingController _controller = TextEditingController();
-    // TextEditingController để lấy giá trị và kiểm soát TextField
-    final List<int> _numbers = [];
+  // Khai báo biến final để không thay đổi giá trị
+  final TextEditingController _controller = TextEditingController();
+  // TextEditingController để lấy giá trị và kiểm soát TextField
+  final List<int> _numbers = [];
 
-    void _addNumber() {
-      // Hàm thêm số vào danh sách
-      if (_controller.text.isNotEmpty){
-        // setState() để cập nhật trạng thái của widget khi có dữ liệu trong TextField
-        setState(() {
-          _numbers.add(int.parse(_controller.text));
-          _controller.clear();
-          print('Bạn vừa sử dụng _addNumber() với giá trị _numbers: $_numbers');
-          // Xoá dữ liệu trong TextField sau khi đã cập nhật trạng thái
-        });
-      }
-      else {
-        print('Dữ liệu chưa được nhập');
-      } 
-    }
-    void _removeList() {
-      // Hàm xoá danh sách
-      if (_numbers.isNotEmpty){
-        setState(() {
-        _numbers.clear();
-        print('Bạn vừa sử dụng _removeList()');
+  void _addNumber() {
+    // Hàm thêm số vào danh sách
+    if (_controller.text.isNotEmpty){
+      // setState() để cập nhật trạng thái của widget khi có dữ liệu trong TextField
+      setState(() {
+        _numbers.add(int.parse(_controller.text));
+        _controller.clear();
+        print('Bạn vừa sử dụng _addNumber() với giá trị _numbers: $_numbers');
+        // Xoá dữ liệu trong TextField sau khi đã cập nhật trạng thái
       });
-      }
-      else {
-        print('Giá trị tạo hàng rỗng, hãy tạo trước khi xoá');
-      }
     }
+    else {
+      print('Dữ liệu chưa được nhập');
+    } 
+  }
+
+  void _removeList() {
+    // Hàm xoá danh sách
+    if (_numbers.isNotEmpty){
+      setState(() {
+      _numbers.clear();
+      print('Bạn vừa sử dụng _removeList()');
+    });
+    }
+    else {
+      print('Giá trị tạo hàng rỗng, hãy tạo trước khi xoá');
+    }
+  }
+  
   // Giải thích liên quan giữa hàm _addNumber() và lớp _MainAppState
   // Hàm _addNumber() được gọi khi người dùng nhấn nút, 
   // Và được cập nhật dữ liệu vào biến _numbers
