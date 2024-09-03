@@ -1,5 +1,5 @@
-import 'package:first_app/page/create_row.dart';
-import 'package:first_app/page/create_calendar.dart';
+import 'package:first_app/screen/create_row.dart';
+import 'package:first_app/screen/create_calendar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
